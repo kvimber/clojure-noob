@@ -1,0 +1,65 @@
+
+* Introduction
+- [[https://www.braveclojure.com/introduction/][Intro Link]]
+** Learning a New Programming Language: A Journey Through the Four Labyrinths
+To wield Clojure to its fullest, you’ll need to find your way through the four labyrinths that face every programmer learning a new language:
+
+*** The Forest of Tooling
+A friendly and efficient programming environment makes it easy to try your ideas. You’ll learn how to set up your environment.
+*** The Mountain of Language
+As you ascend, you’ll gain knowledge of Clojure’s syntax, semantics, and data structures. You’ll learn how to use one of the mightiest programming tools, the macro, and learn how to simplify your life with Clojure’s concurrency constructs.
+*** The Cave of Artifacts
+In its depths you’ll learn to build, run, and distribute your own programs, and how to use code libraries. You’ll also learn Clojure’s relationship to the Java Virtual Machine ( JVM).
+*** The Cloud Castle of Mindset
+In its rarefied air, you’ll come to know the why and how of Lisp and functional programming. You’ll learn about the philosophy of simplicity that permeates Clojure, and how to solve problems like a Clojurist.
+* Part I: Environment Setup
+** Ch 1: Building, Running, & the REPL
+- [[https://www.braveclojure.com/getting-started/][Chapter Page]]
+- *Read, Eval, Print, Loop (REPL)*
+- distinction: Clojure language vs the Clojure compiler
+  - the *Clojure language* is a Lisp dialect
+    - w/a functional emphasis whose syntax & semantics are independent of any implementation
+  - the *Clojure compiler* is an executable JAR file, =clojure.jar=
+    - takes code written in the Clojure language & compiles it
+    - to Java Virtual Machine (JVM) bytecode
+  - can be confusing, people use *Clojure* to refer to either
+  - distinction necessary b/c Clojure is a *hosted language*
+    - [[https://en.wikipedia.org/wiki/Self-hosting_(compilers)][Wikipedia: Self-hosting (compilers)]] is when a compiler can compile its own source code
+    - so the tools in the language themselves can _create_ the next version of the language
+    - [[https://clojure.org/about/jvm_hosted][Hosted on the JVM (Clojure About Page)]] talks about how Clojure is designed to be a hosted language
+      - it shares a lot of stuff w/the JVM: type system, GC, threads, etc
+- to create a new clojure project using leiningen
+  - =lein new app clojure-noob=
+- page generates code that should be at =src/clojure_noob/core.clj=
+  - but due to my structure, I put the code for this at
+    - =src/clojure_noob/cftbat/ch1.clj=
+  - this created a challenge where doing the next steps didn't "just work"
+  - running =lein run= wouldn't run the code I made right off the bat
+  - running =lein repl= wouldn't load my code into the repl off the bat either
+  - was able to solve both of these issues
+    - by setting the =:main= property in =project.clj=
+    - set it to my package: =:main ^:skip-aot clojure-noob.cftbat.ch1=
+  - once I did that, my code was run/loaded right off the bat, so that was cool
+  - was able to run the main fn w/ =(-main)=
+- building the Clojure project:
+  - =lein uberjar= creates a jar
+    - file: =target/uberjar/clojure-noob-0.1.0-SNAPSHOT-standalone.jar=
+  - can run this file w/this command:
+    - =java -jar <jar-file-path>=
+** Ch 2: How to Use Emacs, an Excellent Clojure Editor
+- [[https://www.braveclojure.com/basic-emacs/][Chapter Page]]
+* Part II: Language Fundamentals 
+** Ch 3: Do Things: A Clojure Crash Course
+** Ch 4: Core Functions in Depth
+** Ch 5: Functional Programming
+** Ch 6: Organizing Your Project: A Librarian's Tale
+** Ch 7: Clojure Alchemy: Reading, Evaluation, & Macros
+** Ch 8: Writing Macros
+* Part III: Advanced Topics
+** Ch 9: The Sacred Art of Concurrent & Parallel Programming
+** Ch 10: Clojure Metaphysics: Atoms, Refs, Vars, & Cuddle Zombies
+** Ch 11: Mastering Concurrent Processes w/ =core.async=
+** Ch 12: Working w/ the JVM
+** Ch 13: Creating & Extending Abstractions w/ Multimethods, Protocols, & Records
+** App A: Building & Developing w/ Leiningen
+** App B: Boot, the Fancy Clojure Build Framework
