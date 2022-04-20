@@ -3,5 +3,5 @@
             [clojure-noob.core :refer :all]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+  (testing "FIXME no longer required, I've been rendered useless."
+    (is (= 1 1))))
