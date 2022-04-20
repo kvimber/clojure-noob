@@ -36,7 +36,23 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  everything-workflow:
+  push-workflow:
     jobs:
       - say-hello
       - test
+  periodic-workflow:
+    jobs:
+      - say-hello
+      - test
+    # scheduled build docs:
+    #   https://circleci.com/docs/2.0/triggers/#scheduled-builds
+    triggers:
+      - schedule:
+          # At 1:22am on the 1st and 15th:
+          #   https://cron.help/#22_1_1,15_*_*
+          cron: "22 1 1,15 * *"
+          filters:
+            branches:
+              only:
+                - master
+
