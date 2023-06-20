@@ -5,7 +5,8 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [
                  [org.clojure/clojure "1.10.1"]
-                 [com.clojure-goes-fast/clj-async-profiler "1.0.2"]]
+                 [com.clojure-goes-fast/clj-async-profiler "1.0.2"]
+                 [clj-time "0.15.2"]]
   :main ^:skip-aot clojure-noob.cftbat.ch1
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
